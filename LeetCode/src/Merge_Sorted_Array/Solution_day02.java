@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class Solution_day02 {
     public static void main(String[] args){
-    	int[] numsM1 = {1,2,3,0,0,0};
-    	int[] numsM2 = {2,3,6};
+    	int[] numsM1 = {-1,0,0,3,3,3,0,0,0};
+    	int[] numsM2 = {1,2,2};
   
-    	int m = 3;
+    	int m = 6;
     	int n = 3;
     	
     	merge(numsM1, m, numsM2, n);
@@ -23,18 +23,18 @@ public class Solution_day02 {
     	
     	for(int i=0; i < m+n ; i++) {    		
     		if(nums1[i] == 0) {
-    			break;
+    			//pass
     		}else {
-    			fNums1[i] = nums1[i];
+    			fNums1[a] = nums1[i];
     			a++;
     		}
     	}
 
-    	for(int j=0; j < n ; j++) {
+    	for(int j=0; j < n ;j++) {
     		if(nums2[j] == 0) {
-    			break;
+    			//pass
     		}else {
-    			fNums2[j] = nums2[j];
+    			fNums2[b] = nums2[j];
     			b++;
     		}
     	}
