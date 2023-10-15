@@ -13,6 +13,7 @@ import java.util.Arrays;
 
 public class Solution_day01 {
 	public static void main(String args[]) {
+		//Use testCase
 		int[] tcNums = {3,2,2,3}; // Input array
 		int tcVal = 3; // Value to remove
 		
@@ -30,12 +31,14 @@ public class Solution_day01 {
 			}
 		}
 		
+		//the answer is..
 		int[] expectedNums = descArr(nums);
 		
 		System.out.println("k :: " + k);
 		System.out.println("nums :: " + Arrays.toString(expectedNums));
     }
 	
+	//embody descArr
 	private static int[] descArr(int nums[]) {
 		int[] descArr = new int[nums.length];
 		
