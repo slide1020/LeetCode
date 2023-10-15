@@ -9,9 +9,44 @@ Return k.
 
 package Remove_Element;
 
+import java.util.Arrays;
+
 public class Solution_day01 {
-    
-	public void removeElement(int[] nums, int val) {
-        
+	public static void main(String args[]) {
+		int[] tcNums = {3,2,2,3}; // Input array
+		int tcVal = 3; // Value to remove
+		
+		removeElement(tcNums, tcVal);
+	}
+   
+	public static void removeElement(int[] nums, int val) {
+		int k = nums.length;
+		
+		for(int i=0;i<nums.length;i++) {
+			if(nums[i]==val) {
+				nums[i] = 0;
+				
+				k = k-1;
+			}
+		}
+		
+		int[] expectedNums = descArr(nums);
+		
+		System.out.println("k :: " + k);
+		System.out.println("nums :: " + Arrays.toString(expectedNums));
     }
+	
+	private static int[] descArr(int nums[]) {
+		int[] descArr = new int[nums.length];
+		
+		Arrays.sort(nums);
+		
+		for(int i=0;i<nums.length;i++) {
+			descArr[i] = nums[nums.length-i-1];
+		}
+		
+		return descArr;
+	}
 }
+
+
