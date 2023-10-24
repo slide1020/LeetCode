@@ -14,8 +14,8 @@ import java.util.Arrays;
 public class Solution_day01 {
 	public static void main(String args[]) {
 		//Use testCase
-		int[] tcNums = {3,2,2,3}; // Input array
-		int tcVal = 3; // Value to remove
+		int[] tcNums = {0,1,2,2,3,0,4,2}; // Input array
+		int tcVal = 2; // Value to remove
 		
 		removeElement(tcNums, tcVal);
 	}
@@ -33,6 +33,7 @@ public class Solution_day01 {
 		
 		//the answer is..
 		int[] expectedNums = descArr(nums);
+		nums = expectedNums;
 		
 		System.out.println("k :: " + k);
 		System.out.println("nums :: " + Arrays.toString(expectedNums));
