@@ -21,25 +21,15 @@ public class Solution_day01 {
 	}
    
 	public static void removeElement(int[] nums, int val) {
-		int k = nums.length;
-		int[] descArr = new int[nums.length];
+		int k = 0;
 		
 		for(int i=0;i<nums.length;i++) {
-			if(nums[i]==val) {
-				nums[i] = 0;
+			if(nums[i]!=val) {
+				nums[k] = nums[i];
 				
-				k = k-1;
+				k++;
 			}
 		}
-		
-		Arrays.sort(nums);
-		
-		for(int i=0;i<nums.length;i++) {
-			descArr[i] = nums[nums.length-i-1];
-		}
-		
-		//the answer is..
-		nums = descArr;
 		
 		System.out.println("k :: " + k);
 		System.out.println("nums :: " + Arrays.toString(nums));
