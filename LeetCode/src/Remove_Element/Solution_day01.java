@@ -14,14 +14,15 @@ import java.util.Arrays;
 public class Solution_day01 {
 	public static void main(String args[]) {
 		//Use testCase
-		int[] tcNums = {0,1,2,2,3,0,4,2}; // Input array
-		int tcVal = 2; // Value to remove
+		int[] tcNums = {3,2,2,3}; // Input array
+		int tcVal = 3; // Value to remove
 		
 		removeElement(tcNums, tcVal);
 	}
    
 	public static void removeElement(int[] nums, int val) {
 		int k = nums.length;
+		int[] descArr = new int[nums.length];
 		
 		for(int i=0;i<nums.length;i++) {
 			if(nums[i]==val) {
@@ -31,26 +32,18 @@ public class Solution_day01 {
 			}
 		}
 		
-		//the answer is..
-		int[] expectedNums = descArr(nums);
-		nums = expectedNums;
-		
-		System.out.println("k :: " + k);
-		System.out.println("nums :: " + Arrays.toString(expectedNums));
-    }
-	
-	//embody descArr
-	private static int[] descArr(int nums[]) {
-		int[] descArr = new int[nums.length];
-		
 		Arrays.sort(nums);
 		
 		for(int i=0;i<nums.length;i++) {
 			descArr[i] = nums[nums.length-i-1];
 		}
 		
-		return descArr;
-	}
+		//the answer is..
+		nums = descArr;
+		
+		System.out.println("k :: " + k);
+		System.out.println("nums :: " + Arrays.toString(nums));
+    }
 }
 
 
