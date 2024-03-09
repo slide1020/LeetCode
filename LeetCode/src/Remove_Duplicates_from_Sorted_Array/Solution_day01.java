@@ -53,21 +53,6 @@ public class Solution_day01 {
 				}
 			}
 		}
-		
-		// 0 goes back
-		int tempNums2;
-		
-		for(int c=1 ; c<nums.length; c++) {
-			// only case that number 0 is duplicate
-			if(nums[c-1] == nums[c]) {
-				for(int d=nums.length; d == c; d--) {
-					tempNums2 = nums[d];
-					nums[d-1] = nums[d];
-					nums[d] = nums[c-1];
-					nums[d-1] = tempNums2;
-				}
-			}
-		}
 
 	    return nums;
 	}
