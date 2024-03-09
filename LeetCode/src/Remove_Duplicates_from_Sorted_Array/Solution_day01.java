@@ -53,6 +53,8 @@ public class Solution_day01 {
 				}
 			}
 		}
+		
+		// 0 goes to back
 
 	    return nums;
 	}
