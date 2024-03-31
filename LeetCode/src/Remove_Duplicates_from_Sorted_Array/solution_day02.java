@@ -14,7 +14,6 @@ public class solution_day02 {
 	}
 	public static int[] removeDuplicates(int[] nums) {
 		
-		//answer is.. but i can't understand
         int j = 1;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] != nums[i - 1]) {
@@ -23,6 +22,6 @@ public class solution_day02 {
             }
         }
         System.out.println("j  = " + j);
-        return nums;
+        return j;
 	}
 }
