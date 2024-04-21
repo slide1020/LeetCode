@@ -3,27 +3,31 @@ import java.util.Arrays;
 
 public class RDSA2_Solution_day02 {
 	public static void main(String args[]) {
-		int[] nums = {0,0,1,1,1,1,2,3,3};
+		//int[] nums = {0,0,1,1,1,1,2,3,3};
 		//{0,0,1,1,2,3,3} -> 7
+		int[] nums = {1};
+		//1,1,1,2,2,3
 		
 		removeDuplSortedArr2(nums);
 	}
 	
 
 	private static int removeDuplSortedArr2(int[] nums){
-		int k=0;
 		int tempIdx = 0;
 		int dupChkCnt = 0;
 		boolean dupchk = false;
+		boolean change = false;
+		boolean work = false;
 		
 		
 		for(int i=1; i<nums.length; i++) {
 			System.out.println("i : " + i + ", nums[i] : " + nums[i] + " / i-1 : " + (i-1) + ", nums[i-1] : " + nums[i-1]+ ", tempIdx: " + tempIdx + ", nums[tempIdx] : " + nums[tempIdx]);
+			change = false;
+			
 			if(nums[i] == nums[i-1]) {
 				dupchk = true;
 			} 
-			
-			
+	
 			if(dupchk) {
 				++dupChkCnt;
 				if(dupChkCnt == 2) {
@@ -31,31 +35,40 @@ public class RDSA2_Solution_day02 {
 				}
 				if(nums[i] != nums[i-1]) {
 					nums[tempIdx] = nums[i];
-					//tempIdx = i;
+					change = true;
 					dupChkCnt= 0;
 					dupchk = false;
 					tempIdx++;
-					k++;
 				}else if(nums[tempIdx] != nums[i]) {
 					nums[tempIdx] = nums[i];
+					change = true;
 					tempIdx++;
-					k++;
 				}
 			}else {			
 				if(nums[tempIdx] != nums[i]) {
 					nums[tempIdx] = nums[i];
 					tempIdx++;
-					k++;
 				}
 			}
-
 			
+			
+			if(nums.length-1 > i) {
+				if(change && (nums[i+1] == nums[tempIdx])  && (nums[tempIdx] <= nums[i-1]) ) {
+					dupChkCnt++;
+				}
+			}
+			work = true;
 			System.out.println(Arrays.toString(nums));
 			System.out.println("-----------------------------------");
 		}
 		
 		System.out.println("final :: " + Arrays.toString(nums) + "/ K : " + tempIdx);
+		if(!work) {
+			tempIdx = nums.length;
+			return tempIdx;
+		}else {
+			return tempIdx;
+		}
 		
-		return k;
 	}
 }
