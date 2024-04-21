@@ -1,8 +1,7 @@
 package Remove_Duplicates_from_Sorted_Array2;
-
 import java.util.Arrays;
 
-public class Solution_day01 {
+public class RDSA2_Solution_day02 {
 	public static void main(String args[]) {
 		int[] nums = {0,0,1,1,1,1,2,3,3};
 		//{0,0,1,1,2,3,3} -> 7
@@ -15,19 +14,15 @@ public class Solution_day01 {
 		int k=0;
 		int tempIdx = 0;
 		int dupChkCnt = 0;
-		int j=1;
 		boolean dupchk = false;
 		
 		
 		for(int i=1; i<nums.length; i++) {
-			System.out.println("i : " + i + ", nums[i] : " + nums[i] + " / i-1 : " + (i-1) + ", nums[i-1] : " + nums[i-1]);
+			System.out.println("i : " + i + ", nums[i] : " + nums[i] + " / i-1 : " + (i-1) + ", nums[i-1] : " + nums[i-1]+ ", tempIdx: " + tempIdx + ", nums[tempIdx] : " + nums[tempIdx]);
 			if(nums[i] == nums[i-1]) {
 				dupchk = true;
 			} 
 			
-			if(nums[i] != nums[i-1]) {
-				nums[tempIdx] = nums[i];
-			}
 			
 			if(dupchk) {
 				++dupChkCnt;
@@ -36,19 +31,31 @@ public class Solution_day01 {
 				}
 				if(nums[i] != nums[i-1]) {
 					nums[tempIdx] = nums[i];
-					tempIdx = i;
+					//tempIdx = i;
 					dupChkCnt= 0;
 					dupchk = false;
+					tempIdx++;
+					k++;
+				}else if(nums[tempIdx] != nums[i]) {
+					nums[tempIdx] = nums[i];
+					tempIdx++;
+					k++;
+				}
+			}else {			
+				if(nums[tempIdx] != nums[i]) {
+					nums[tempIdx] = nums[i];
+					tempIdx++;
+					k++;
 				}
 			}
+
 			
 			System.out.println(Arrays.toString(nums));
 			System.out.println("-----------------------------------");
 		}
 		
-		System.out.println("final :: " + Arrays.toString(nums));
+		System.out.println("final :: " + Arrays.toString(nums) + "/ K : " + tempIdx);
 		
 		return k;
 	}
-	
 }
