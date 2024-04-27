@@ -17,7 +17,6 @@ public class RDSA2_Solution_day02 {
 		int dupChkCnt = 0;
 		boolean dupchk = false;
 		boolean change = false;
-		boolean work = false;
 		
 		
 		for(int i=1; i<nums.length; i++) {
@@ -57,18 +56,12 @@ public class RDSA2_Solution_day02 {
 					dupChkCnt++;
 				}
 			}
-			work = true;
 			System.out.println(Arrays.toString(nums));
 			System.out.println("-----------------------------------");
 		}
 		
 		System.out.println("final :: " + Arrays.toString(nums) + "/ K : " + tempIdx);
-		if(!work) {
-			tempIdx = nums.length;
-			return tempIdx;
-		}else {
-			return tempIdx;
-		}
-		
+
+		return tempIdx;
 	}
 }
