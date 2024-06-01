@@ -22,6 +22,6 @@ public class solution_day02 {
             }
         }
         System.out.println("j  = " + j);
-        return j;
+        return nums;
 	}
 }

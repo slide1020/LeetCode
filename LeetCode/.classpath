@@ -5,6 +5,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="Best_Time_to_Buy_and_Sell_Stock/" kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

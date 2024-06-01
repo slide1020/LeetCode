@@ -36,7 +36,10 @@ public class BTBSS01_Solution_day01 {
 		
 		for(int i = prices.length-1; i >= 0 ; i--) {
 			backNum = prices[i];
-
+			
+			if((result != 0 && backNum < result) || backNum == 0) {
+				continue;
+			}
 			
 			for(int j=0 ; j <= i ; j++) {
 				if(backNum < prices[j]) {
