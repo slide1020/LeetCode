@@ -18,7 +18,7 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 package Best_Time_to_Buy_and_Sell_Stock01;
 
-public class BTBSS01_Solution_day01 {
+public class BTBSS01_Solution_day01_2 {
 	public static void main(String[] args) {
 		int[] prices1 = {7,1,5,3,6,4};
 		int[] prices2 = {7,6,4,3,1};
