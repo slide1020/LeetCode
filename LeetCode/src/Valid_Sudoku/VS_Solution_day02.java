@@ -40,7 +40,7 @@ public class VS_Solution_day02 {
 	}
 	
 	public static boolean isValidSudoku(char[][] board) {
-
+ 
     	char compareBoard1[] = new char[9];
     	char compareBoard2[] = new char[9];
     	int a = 0;

@@ -82,7 +82,7 @@ public class VP_Solution_day01 {
 					}else if("]".equals(pop1Str)){
 						if("[".equals(pop2Str)){
 							continue;
-						}else{
+						}else{ 
 							return false;
 						}
 					}else if(")".equals(pop1Str)){

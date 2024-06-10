@@ -106,7 +106,7 @@ public class VS_Soultion_day01 {
     			//dup is more than 1 is false
     			if(dupChk > 1){
     				return false;
-    			}
+    			} 
     		}
 
         	// initialized        	
