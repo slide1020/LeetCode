@@ -108,7 +108,7 @@ public class VS_Soultion_day01 {
     				return false;
     			} 
     		}
-
+ 
         	// initialized        	
         	compareBoard1 = new char[9];
         	compareBoard2 = new char[9];
