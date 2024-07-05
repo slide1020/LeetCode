@@ -66,7 +66,7 @@ public class LLC_141_Day01 {
 		
 		ListNode listNode3 = new ListNode(1);
 		
-		boolean ans1 = hasCycle(listNode1, 1);
+		boolean ans1 = hasCycle(listNode1, 5);
 		System.out.println(ans1);
 		boolean ans2 = hasCycle(listNode2, 0);
 		System.out.println(ans2);
