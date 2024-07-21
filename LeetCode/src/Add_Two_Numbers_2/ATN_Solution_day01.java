@@ -49,7 +49,10 @@ public class ATN_Solution_day01 {
 		int sumNum = 0;
 		int extraNum = 0;
 		
+		// Loop for l1, l2
 		while(l1 != null || l2 != null) {
+			
+			// sum num initialized
 			l1Num = l1.val;
 			System.out.println(l1Num);
 			l1 = l1.next;
@@ -60,11 +63,14 @@ public class ATN_Solution_day01 {
 			
 			sumNum = l1Num + l2Num;
 			
+			// if sumnum digit is 2, separated
 			if(sumNum > 9) {
 				sumNum = sumNum - 10;
 				extraNum = 1;
 			}
 			
+			// put in ans List
+			// but i dont know put in next.. lets figure out
 			if(extraNum > 0) {
 				if(ans == null) {
 					ans = new ListNode(sumNum + extraNum);
