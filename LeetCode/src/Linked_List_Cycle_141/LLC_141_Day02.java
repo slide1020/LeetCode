@@ -14,10 +14,10 @@ class LLC_141_Day02 {
 		
 		boolean ans1 = hasCycle(listNode1);
 		System.out.println(ans1);
-		boolean ans2 = hasCycle(listNode2);
-		System.out.println(ans2);
-		boolean ans3 = hasCycle(listNode3);
-		System.out.println(ans3);
+//		boolean ans2 = hasCycle(listNode2);
+//		System.out.println(ans2);
+//		boolean ans3 = hasCycle(listNode3);
+//		System.out.println(ans3);
 		
 		
 	}
@@ -31,11 +31,15 @@ class LLC_141_Day02 {
     		return false;
     	}
     	
+		fast = head;
+		slow = head;
+    	
     	try {
     		while(null != fast && null != slow) {
-    			fast = head.next.next;
-    			slow = head.next;
-    			
+    			fast = fast.next.next;
+    			slow = slow.next;
+    			System.out.println("fast : " + fast);
+    			System.out.println("slow : " + slow);
     			if(fast == slow) {
     				return true;
     			}
@@ -45,6 +49,6 @@ class LLC_141_Day02 {
     		return false;
     	}
     	
-    	return true;
+    	return false;
     }
 }
