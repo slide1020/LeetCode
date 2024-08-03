@@ -44,58 +44,81 @@ public class ATN_Solution_day01 {
 	
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode ans = new ListNode();
+		ListNode rtnAns = new ListNode();
 		int l1Num = 0;
 		int l2Num = 0;
 		int sumNum = 0;
 		int extraNum = 0;
+		boolean extraYn = false; 
 		
 		// Loop for l1, l2
 		while(l1 != null || l2 != null) {
 			
 			// sum num initialized
-			l1Num = l1.val;
-			System.out.println(l1Num);
-			l1 = l1.next;
+			if(l1 != null) {
+				l1Num = l1.val;
+				System.out.println(l1Num);
+				l1 = l1.next;
+			}
 			
-			l2Num = l2.val;
-			System.out.println(l2Num);
-			l2 = l2.next;
+			// sum num initialized
+			if(l2 != null) {
+				l2Num = l2.val;
+				System.out.println(l2Num);
+				l2 = l2.next;
+			}
+			
 			
 			sumNum = l1Num + l2Num;
 			
 			// if sumnum digit is 2, separated
 			if(sumNum > 9) {
 				sumNum = sumNum - 10;
-				extraNum = 1;
+//				extraNum = 1;
+				extraYn = true;
 			}
-			
 			// put in ans List
-			// but i dont know put in next.. lets figure out
 			if(extraNum > 0) {
 				if(ans == null) {
 					ans = new ListNode(sumNum + extraNum);
-
-					System.out.println("test 1 addr : " + ans);
 					System.out.println("test 1 val : " + ans.val);
 				}else {
-					ans = new ListNode(sumNum + extraNum, ans.next);					
-					
-					System.out.println("test 2 addr : " + ans);
+					ans = new ListNode(sumNum + extraNum, ans);					
 					System.out.println("test 2 val : " + ans.val);
 				}
 				extraNum = 0;
 			}else {
 				if(ans == null) {
 					ans = new ListNode(sumNum);
-					System.out.println("test 3 addr : " + ans);
 					System.out.println("test 3 val : " + ans.val);
 				}else {
-					ans = new ListNode(sumNum, ans.next);
-					System.out.println("test 4 addr : " + ans);
+					ans = new ListNode(sumNum, ans);
 					System.out.println("test 4 val : " + ans.val);
 				}
 			}
+			if(extraYn) {
+				extraNum = 1;
+				extraYn = false;
+			}
 		}
-        return ans;
+		
+		// List pop and push to rtnAns
+		//7080
+		while(ans.next != null) {
+			if(rtnAns == null) {
+				rtnAns = new ListNode(ans.val);
+				System.out.println("1");
+				rtnAns = rtnAns.next;
+			} else {
+				rtnAns = new ListNode(ans.val,rtnAns);
+				System.out.println("3");
+			}
+			ans = ans.next;
+		}
+
+        return rtnAns;
+        
+		//8070
+        //return ans;
     } 
 }
