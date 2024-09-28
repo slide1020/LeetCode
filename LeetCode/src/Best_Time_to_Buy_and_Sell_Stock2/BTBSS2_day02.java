@@ -1,5 +1,5 @@
 package Best_Time_to_Buy_and_Sell_Stock2;
-
+//wrong
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,7 @@ public class BTBSS2_day02 {
 		int[] ex7 = {6,1,3,2,4,7};
 
 //		System.out.println("ex1 : " +maxProfit(ex1));
-//		System.out.println("ex2 : " +maxProfit(ex2));
+		System.out.println("ex2 : " +maxProfit(ex2));
 //		System.out.println("ex3 : " +maxProfit(ex3));
 //		System.out.println("ex4 : " +maxProfit(ex4));
 //		System.out.println("ex5 : " +maxProfit(ex5));
