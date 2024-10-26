@@ -40,17 +40,23 @@ public class LSWRC_day03 {
     		if(!hs.contains(workChar)) {
     			hs.add(workChar);
     			ans = Math.max(ans, right - left + 1);
+
+    	    	System.out.println("right hs is : " + hs + " / right : " +right);
     			right++;
     		} else {
     			while(s.charAt(left) != workChar) {
         			hs.remove(s.charAt(left));
     				left++;
+
+        	    	System.out.println("left[1] hs is : " + hs + " / left : " +left);
     			}
     			hs.remove(s.charAt(left));
     			left++;
+
+    	    	System.out.println("left[2] hs is : " + hs + " / left : " +left);
     		}
     	}
-    	System.out.println(hs);
+    	System.out.println("final hs is : " + hs);
         return ans;
     }
 }
