@@ -1,6 +1,8 @@
 package Spiral_Matrix_54;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class SM54_day01 {
@@ -21,47 +23,79 @@ public class SM54_day01 {
 							{13,14,15,16}};
 		
 		System.out.println("ans1 >>> ");
-		System.out.println(spiralOrder(matrix01));
+		System.out.println(" >>> " + spiralOrder(matrix01));
 		
 		System.out.println("ans2 >>> ");
-		System.out.println(spiralOrder(matrix02));
+		System.out.println(" >>> " + spiralOrder(matrix02));
 		
 		System.out.println("ans3 >>> ");
-		System.out.println(spiralOrder(matrix03));
+		System.out.println(" >>> " + spiralOrder(matrix03));
 	}
 	
     public static List<Integer> spiralOrder(int[][] matrix) {
     	ArrayList<Integer> ansList = new ArrayList<Integer>();
+    	HashMap<Integer, Boolean> visitHM = new HashMap<Integer, Boolean>();
     	//00 - 01 - 02 - 12 - 22 - 21 - 20 - 10 - 11
     	//00 - 01 - 02 - 03 - 13 - 23 - 33 - 32 - 31 - 30 - 20 - 21 - 22
     	//00 - 01 - 02 - 03 - 13 - 23 - 33 - 32 - 31 - 30 - 20 - 10 - 11 - 12 - 22 - 21
     	
-    	int maxWeight = matrix[0].length;
-    	int maxHeight = matrix.length;
-    	int whileIdx = 0;
-    	int heightIdx = 0;
-    	int weightIdx = 0;
+    	int top = 0;
+    	int bottom = matrix.length-1;
+    	int right = matrix[0].length-1;
+    	int left = 0;
+    	int index = 0;
     	
-    	System.out.println("maxWeight : " + maxWeight);
-    	System.out.println("maxHeight : " + maxHeight);
     	
-    	if(maxWeight < maxHeight) {
-    		whileIdx = maxHeight-1;
-    	}else if(maxHeight < maxWeight) {
-    		whileIdx = maxWeight-1;
-    	}else {
-    		whileIdx = maxHeight-1;
-    	}
-    	
-    	while(whileIdx > 0){
-    		for( ; heightIdx < maxHeight; heightIdx++) {
-    			for(; weightIdx < maxWeight; weightIdx++) {
-        			ansList.add(matrix[heightIdx][weightIdx]);
+    	while(left <= right && top <= bottom) {
+        	System.out.println("index :: " + index);
+        	System.out.println("top :: " + top);
+        	System.out.println("left :: " + left);
+        	System.out.println("right :: " + right);
+        	System.out.println("bottom :: " + bottom);
+        	System.out.println("---------------------------");
+        	// step1. put line 1
+        	while(index <= right) {
+        		if(false == visitHM.get(matrix[top][index])) {
+            		ansList.add(matrix[top][index]);
+            		visitHM.put(matrix[top][index], true);
+            		index++;
         		}
-    		}
-    		whileIdx--;
+        	}
+        	top++;
+        	index = top;
+        	//step2. put last col
+        	while(index <= bottom) {
+        		if(false == visitHM.get(matrix[index][right])) {
+            		ansList.add(matrix[index][right]);
+            		visitHM.put(matrix[index][right], true);
+                	index++;	
+        		}
+        	}
+        	right--;
+        	index = right;
+        	//step3. put last row
+        	while(0 <= index) {
+        		if(false == visitHM.get(matrix[bottom][index])) {
+            		ansList.add(matrix[bottom][index]);
+            		visitHM.put(matrix[bottom][index], true);
+            		index--;
+        		}
+        	}
+        	bottom--;
+        	index = bottom;
+        	//step4. put first col
+        	while(top <= index) {
+        		if(false == visitHM.get(matrix[index][left])) {
+            		ansList.add(matrix[index][left]);
+            		visitHM.put(matrix[index][left], true);
+            		index--;
+        		}
+        	}
+        	left++;
+        	index = left;
     	}
-    	 
+
+    	
         return ansList;
     }
 
