@@ -87,7 +87,7 @@ public class SP71_day01 {
     			System.out.println(wFold);
     		}
     	}
-    	
+    	 
         return rtnPath;
     }
 
