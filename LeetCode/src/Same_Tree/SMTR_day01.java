@@ -37,7 +37,7 @@ package Same_Tree;
 public class SMTR_day01 {
 
 	public static void main(String[] args) {
-
+  
 	}
 	
     public boolean isSameTree(TreeNode p, TreeNode q) {
