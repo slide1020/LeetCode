@@ -44,7 +44,7 @@ public class SMTR_day01 {
         //System.out.println("p.val : " + p + "/ q :  " + q);
     	// if p is null and q is null end.
         if(p == null && q == null) {
-        	return true;
+        	return true; 
         }
         
         // if p or q is null, then p!=q. so return false.
