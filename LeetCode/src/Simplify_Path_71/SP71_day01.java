@@ -65,29 +65,33 @@ public class SP71_day01 {
 		String ex5 = "/.../a/../b/c/../d/./";			 // "/.../b/d"
 		
 		System.out.println("ex1 : " + simplifyPath(ex1));
-//		System.out.println("ex2 : " + simplifyPath(ex2));
-//		System.out.println("ex3 : " + simplifyPath(ex3));
-//		System.out.println("ex4 : " + simplifyPath(ex4));
-//		System.out.println("ex5 : " + simplifyPath(ex5));
+		System.out.println("ex2 : " + simplifyPath(ex2));
+		System.out.println("ex3 : " + simplifyPath(ex3));
+		System.out.println("ex4 : " + simplifyPath(ex4));
+		System.out.println("ex5 : " + simplifyPath(ex5));
 	}
 	
     public static String simplifyPath(String path) {
     	String rtnPath = "/";
-    	String wFold = "";
-    	ArrayList wPath = new ArrayList();
+    	char wFold = ' ';
+    	char wDir = '/';
     	
     	for(int i=0; i<path.length(); i++) {
     		System.out.println(path.charAt(i));
-    		if(path.charAt(i) != '.' || path.charAt(i) != '/'){
-    			int j = i;
-    			while(path.charAt(j) == '.' || path.charAt(j) == '/') {
-    				wFold += path.charAt(j);
-    				j++;
+    		if(path.charAt(i) != '.' && path.charAt(i) != '/'){    			
+    			wFold += path.charAt(i);
+
+				wDir = ' ';
+    			//System.out.println(wFold);
+    		}else{
+    			if(wDir == ' ') {
+    				wDir = path.charAt(i);
+        			rtnPath += wFold + "";
+        			rtnPath += '/';
+        			wFold = ' ';
     			}
-    			System.out.println(wFold);
     		}
     	}
-    	 
         return rtnPath;
     }
 
