@@ -79,7 +79,7 @@ public class SP71_day01 {
     	for(int i=0; i<path.length(); i++) {
     		System.out.println(path.charAt(i));
     		if(path.charAt(i) != '.' || path.charAt(i) != '/'){
-    			int j = i; 
+    			int j = i;
     			while(path.charAt(j) == '.' || path.charAt(j) == '/') {
     				wFold += path.charAt(j);
     				j++;
